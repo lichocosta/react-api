@@ -1,11 +1,12 @@
 import { HiCalendar } from "react-icons/hi"
 import { Link } from "react-router-dom";
-import { Box, Flex, Text, Tag, Button, Icon } from "@chakra-ui/react";
+import { Box, Flex, Text, Tag, Button, Icon, useColorModeValue } from "@chakra-ui/react";
 
 export function LaunchItem(launch) {
+  const bgColor = useColorModeValue('gray.100', 'gray.700');
   return (
     <Box
-      bg="gray.100"
+      bg={bgColor}
       p={4}
       borderRadius="lg"
     >
@@ -26,7 +27,7 @@ export function LaunchItem(launch) {
       </Flex>
 
       <Link to={`/launch/${launch.flight_number}`}>
-        <Button mt={2} colorScheme="purple">
+        <Button mt={2} colorScheme="blue">
           More details
         </Button>
       </Link>

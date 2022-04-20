@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Heading, SimpleGrid } from "@chakra-ui/react";
+import { Heading, SimpleGrid, Center, Spinner } from "@chakra-ui/react";
 import { LaunchItem } from "./LaunchItem";
 import * as API from "../services/launches";
 
@@ -18,12 +18,16 @@ export function LaunchList() {
       <Heading align="center" as="h1" size="lg" m={4}>
         SpaceX Launches
       </Heading>
-      {!launches.length === 0 ? (
-        <div>Loading...</div> 
+      {launches.length === 0 ? (
+        <Center h="70vh">
+          <Spinner 
+            size='xl'
+          /> 
+        </Center>
       ) : (
       <SimpleGrid p={4} columns={[1, null, 2]} gap="4">
         {launches.map((launch) => (
-          <LaunchItem key={launch.flight_number} {...launch} />
+          <LaunchItem key={launch.mission_name} {...launch} />
         ))}
       </SimpleGrid>
       )}

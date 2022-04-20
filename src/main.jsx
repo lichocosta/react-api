@@ -1,12 +1,14 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
 import { ColorModeScript } from "@chakra-ui/color-mode";
 import { ChakraProvider } from '@chakra-ui/react'
 import { App } from './App'
 import theme from "./theme";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <BrowserRouter>
@@ -15,4 +17,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>
-)
+);
